@@ -4,8 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -rf public",
+    "folder": "mkdir public",
+
+    "webpack:4": "node node_modules/.bin/webpack --config ./1_4/webpack.config.js",
+    "build:4": "npm run clean && npm run folder && cp ./1_4/index.html ./public && npm run webpack:4",
+    "dev:4": "NODE_ENV=development npm run build:4",
+    "prod:4": "NODE_ENV=production npm run build:4"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "6.4.0",
+    "babel-loader": "^5.4.2",
+    "bundle-loader": "^0.5.6",
+    "moment": "^2.22.2",
+    "path": "^0.12.7",
+    "webpack": "^1.15.0"
+  }
 }
